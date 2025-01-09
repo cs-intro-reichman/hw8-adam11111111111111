@@ -27,7 +27,7 @@ public class User {
         this(name);
         follows[0] = "Foo";
         follows[1] = "Bar";
-        follows[2] = "Baz";
+        follows[2] = "baz";
         fCount = 3;
     }
 
@@ -64,6 +64,10 @@ public class User {
      * does nothing and returns false;
      */
     public boolean addFollowee(String name) {
+        if (this.name == name) {
+            System.out.println("user cant follow themselves");
+            return false;
+        }
         if (this.fCount == maxfCount) {
             System.out.println("following list is full");
             return false;
